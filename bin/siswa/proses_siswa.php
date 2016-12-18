@@ -97,7 +97,8 @@ if($_SESSION['level']=='siswa'){
 		        $iddukerja = anti_injection($_POST['id']);
 		        $portofolio = anti_injection($_POST['portofolio']);
 		        $tgl = date('Y-m-d');
-		        if(!empty($_FILES['lampiran'])){
+		        if($_FILES['lampiran']['name']!=''){
+		        	echo "masuk not empty";
 		        $namafolder="lampiran/";
 				$file_ext = substr($_FILES["lampiran"]["name"], strripos($_FILES["lampiran"]["name"], '.')); // strip name
 				    
@@ -107,6 +108,8 @@ if($_SESSION['level']=='siswa'){
 					{
 					}
 			
+				}else{
+					$lam2 ='';
 				}
 
 		        mysql_query(" INSERT INTO hb_lamar_kerja(id_du_kerja, nis, tgl, portofolio, status,lampiran) VALUES ('$iddukerja','$_SESSION[username]', '$tgl', '$portofolio','Belum Diterima','$lam2')") or die ("Ups! Gagal Ditambahkan, Silahkan Coba Lagi! ".mysql_error());

@@ -33,7 +33,7 @@ if($_SESSION['level']=='perusahaan'){
 
                         $pesan .= "<h4>Lamaran Anda diterima di ".$dd['nama_du'];
 
-                        $kirim  = mail($to, $judul, $pesan, $dari)or die(mysql_error());
+                        //$kirim  = mail($to, $judul, $pesan, $dari)or die(mysql_error());
                 header('location:lamaranaktif.php');
 
       break;

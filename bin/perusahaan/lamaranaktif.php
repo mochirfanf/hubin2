@@ -123,6 +123,9 @@ if($_SESSION['level']=='perusahaan'){
                                         <td>Jurusan</td><td>&emsp;:&emsp;</td><td><span id='jur'>Bandung, 90 Desember 19999</span></td>
                                     </tr>
                                     <tr>
+                                        <td>Angkatan</td><td>&emsp;:&emsp;</td><td><span id='angkatan'>Bandung, 90 Desember 19999</span></td>
+                                    </tr>
+                                    <tr>
                                         <td>TTL</td><td>&emsp;:&emsp;</td><td><span id='ttl'>Bandung, 90 Desember 19999</span><span id='tgl'></span></td>
                                     </tr>
                                     <tr>

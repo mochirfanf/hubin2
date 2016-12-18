@@ -92,6 +92,7 @@ $(document).ready(function() {
                 modal.find("#jk").text(result['jenis_kelamin']);
                 modal.find("#email").text(result['email_siswa']);
                 modal.find("#notelp").text(result['no_telepon']);
+                modal.find("#angkatan").text(result['tahun_ajaran']);
                 if(result['lampiran']!=""){
                     modal.find("#lam").attr("href", "../siswa/"+ result['lampiran']);
                     var lam = result['lampiran'];

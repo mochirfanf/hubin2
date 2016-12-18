@@ -10,7 +10,7 @@ if($_SESSION['level']=='kapprog'){
         $navactive3 ="nav-active";
 
 
-        $data3 = mysql_query("SELECT * FROM hb_du_umum,hb_prakerin,siswa WHERE hb_prakerin.tahun_ajaran = '$_SESSION[tahun_ajaran]' AND siswa.id_jurusan='$_SESSION[jurusan]' AND hb_du_umum.id_du = hb_prakerin.id_du AND siswa.nis = hb_prakerin.nis");
+        $data3 = mysql_query("SELECT * FROM hb_du_umum,hb_prakerin,siswa WHERE hb_prakerin.tahun_ajaran = '$_SESSION[tahun_ajaran]' AND siswa.id_jurusan='$_SESSION[jurusan]' AND hb_du_umum.id_du = hb_prakerin.id_du AND siswa.nis = hb_prakerin.nis")or die(mysql_error());
 
         include "leftside.php"; ?>
 
@@ -48,7 +48,7 @@ if($_SESSION['level']=='kapprog'){
                                         
                                     // }
 
-                                    $adanis = mysql_query("SELECT nis, nama_siswa, kelas FROM siswa WHERE siswa.tahun_ajaran = '$_SESSION[tahun_ajaran]' AND siswa.id_jurusan='$_SESSION[jurusan]' AND nis != ( SELECT nis FROM hb_prakerin )");
+                                    $adanis = mysql_query("SELECT nis, nama_siswa, kelas FROM siswa WHERE siswa.tahun_ajaran = '$_SESSION[tahun_ajaran]' AND siswa.id_jurusan='$_SESSION[jurusan]' AND nis != ( SELECT nis FROM hb_prakerin )")or die(mysql_error());
 
                                     while( $d = mysql_fetch_array($adanis)) {
 

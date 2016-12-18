@@ -14,6 +14,9 @@ body,h1,h2,h3,h4,h5, .btn{
 .btn{
    color: #fff;
 }
+.btn-default{
+   color: #000;
+}
 .jobs-nm-text{
 	font-family: "latol";
 }
@@ -108,6 +111,8 @@ table.tpp tr td{
         display: inline-block;
         text-decoration: none;
         transition: max-width 1s ease-out .1s, opacity 1s ease-out .1s, color;
+        -webkit-transition: max-width 1s ease-out .1s, opacity 1s ease-out .1s, color;
+        -moz-transition: max-width 1s ease-out .1s, opacity 1s ease-out .1s, color;
     }
         .pendaf li a:hover {
             color: #3a6ea5;
@@ -129,11 +134,20 @@ table.tpp tr td{
         .pendaf li:hover a {
             opacity: 1;
             max-width: 150px;
-            transition: max-width 1s ease-out .1s, opacity 1s ease-out .1s, color .2s;
+            transition: max-width 1s ease-out .1s, opacity 1s ease-out .1s, color .1s;
+            -webkit-transition: max-width 1s ease-out .1s, opacity 1s ease-out .1s, color .1s;
+            -moz-transition: max-width 1s ease-out .1s, opacity 1s ease-out .1s, color .1s;
         }
 .up{
    width: 50px;
    height: 50px;
    border-radius: 50%;
 
+}
+.btn-jobs{
+  color: #fff;
+}
+
+.bb{
+  --border-bottom:1px solid #bcd1e7;
 }

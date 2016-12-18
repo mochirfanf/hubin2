@@ -9,7 +9,7 @@ if($_SESSION['level']=='kapprog'){
         $active19 = "active";
         $navactive7 ="nav-active";
 
-        $data = mysql_query( "SELECT *, hb_monitoring.nip_guru as ng FROM hb_prakerin INNER JOIN hb_monitoring ON hb_prakerin.id_du=hb_monitoring.id_du INNER JOIN hb_du_jumlah_permintaan_du ON hb_du_jumlah_permintaan_du.id_du = hb_prakerin.id_du WHERE hb_prakerin.tahun_ajaran='$_SESSION[tahun_ajaran]' AND hb_du_jumlah_permintaan_du.id_jurusan=$_SESSION[jurusan] GROUP BY id_prakerin")or die(mysql_error());
+        $data = mysql_query( "SELECT *, hb_monitoring.nip_guru as ng FROM hb_prakerin INNER JOIN hb_monitoring ON hb_prakerin.id_du=hb_monitoring.id_du INNER JOIN hb_du_jumlah_permintaan_du ON hb_du_jumlah_permintaan_du.id_du = hb_prakerin.id_du WHERE hb_prakerin.tahun_ajaran='$_SESSION[tahun_ajaran]' AND hb_du_jumlah_permintaan_du.id_jurusan=$_SESSION[jurusan] GROUP BY hb_prakerin.id_du")or die(mysql_error());
        
        
         include "leftside.php"; ?>

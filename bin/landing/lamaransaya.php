@@ -50,7 +50,7 @@ include "../koneksidb.php";
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand topnav" href="index.php">LOKER HUBIN</a>
+                <a class="navbar-brand topnav" href="index.php"><img src='../images/logobkk.png' class='img-responsive' style="width: 120px;margin-top:-10px;"></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -58,13 +58,13 @@ include "../koneksidb.php";
                     <li>
                         <a href="index.php">HOME</a>
                     </li>
-                    <li class='ac'>
+                    <li >
                         <a href="lowongankerja.php">LOWONGAN KERJA</a>
                     </li>
                     <?php if(isset($_SESSION['level'])){
                         if($_SESSION['level']=='siswa'){
                         ?>
-                    <li >
+                    <li class='ac'>
                         <a href="lamaransaya.php">LAMARAN SAYA</a>
                     </li>
                     <?php 
@@ -138,7 +138,7 @@ include "../koneksidb.php";
     <div class="row fmargin"> 
 <?php
 
-                        $data = mysql_query("SELECT *, GROUP_CONCAT(nama_jurusan) as juru FROM hb_du_permintaan_kerja INNER JOIN hb_du_umum ON hb_du_permintaan_kerja.id_du = hb_du_umum.id_du INNER JOIN hb_du_jumlah_permintaan_du_kerja ON hb_du_jumlah_permintaan_du_kerja.id_du_kerja=hb_du_permintaan_kerja.id_du_kerja INNER JOIN jurusan ON jurusan.id_jurusan = hb_du_jumlah_permintaan_du_kerja.id_jurusan INNER JOIN hb_lamar_kerja ON hb_lamar_kerja.id_du_kerja = hb_du_permintaan_kerja.id_du_kerja INNER JOIN siswa ON siswa.nis=hb_lamar_kerja.nis WHERE hb_lamar_kerja.nis='$_SESSION[username]' ORDER BY tgl DESC")or die(mysql_error());
+                        $data = mysql_query("SELECT * FROM hb_du_permintaan_kerja INNER JOIN hb_du_umum ON hb_du_permintaan_kerja.id_du = hb_du_umum.id_du INNER JOIN hb_lamar_kerja ON hb_lamar_kerja.id_du_kerja = hb_du_permintaan_kerja.id_du_kerja INNER JOIN siswa ON siswa.nis=hb_lamar_kerja.nis WHERE hb_lamar_kerja.nis='131010682' ORDER BY tgl DESC")or die(mysql_error());
                             ?>
             <div class="col col-sm-9">
                 <br><br>
@@ -160,8 +160,15 @@ include "../koneksidb.php";
                     <div class="row">
                         <div class="col col-sm-8">
                             <?php echo substr($d['portofolio'],0,200).'...';
-                                    echo "<br><br><span>Lampiran : <a href='../siswa/$d[lampiran]'>Lihat Lampiran</a></span>
+                                    if($d['lampiran']!=''){
+
+                                    echo "<br><br><span>Lampiran : <a href='../siswa/$d[lampiran]' download>Lihat Lampiran</a></span>
                                     <span style='float:right'>Tanggal : $d[tgl]</span>";
+                                }else{
+
+                                    echo "<br><br><span>Lampiran : - </span>
+                                    <span style='float:right'>Tanggal : $d[tgl]</span>";
+                                }
                             ?>
 
                         </div> 

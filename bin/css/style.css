@@ -4732,8 +4732,9 @@ ol.comment-list {
 }
 .bpk{
     background-color: #aee1d2;
-    height: 200px;
+    min-height: 200px;
     border-radius: 10px;
+    padding-bottom: 20px;
 }
 .pp{
     padding: 10px;

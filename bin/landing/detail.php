@@ -174,7 +174,7 @@ include "../koneksidb.php";
                                 $pl = mysql_query("SELECT * FROM hb_lamar_kerja INNER JOIN siswa ON hb_lamar_kerja.nis = siswa.nis WHERE id_du_kerja = '$d[id_du_kerja]'");
                                     while($dm = mysql_fetch_array($pl)){
                             ?>
-                                    <li><b><img style="background-image: url('<?php echo '../images/uploads/'.$dm['foto'];?>');background-size: cover;" class='up'></b><a href="#"><i><?php echo substr($dm['nama_siswa'],0,15)?></i></a></li>
+                                    <li><b style='float: left'><div style="float:left;background-image: url('<?php echo '../images/uploads/'.$dm['foto'];?>');background-size: cover;" class='up'></div></b><a href='#detaillamar' data-toggle='modal' data-id='<?php echo $dm['id_lamar']?>' style='padding-top: 22px'><i><?php echo substr($dm['nama_siswa'],0,15)?></i></a></li>
                                     <?php
 
                                 }
@@ -272,6 +272,17 @@ include "../koneksidb.php";
 
     </div>
 </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="copyright text-muted small">Copyright &copy; Loker Hubin 2016. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
         <div class='modal fade' id='apply' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
 <?php
 
@@ -346,17 +357,69 @@ include "../koneksidb.php";
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <p class="copyright text-muted small">Copyright &copy; Loker Hubin 2016. All Rights Reserved</p>
+    </div></div>
+
+        <div class='modal fade' id='detaillamar' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+        <div class='modal-dialog'>
+            <div class='modal-content'>
+                <div class='modal-header'>
+                    <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+                    <h4 class='modal-title' id='myModalLabel'>Lamaran Pekerjaan</h4> </div>
+                <div class='modal-body'>
+                    <div class='col-md-12'>
+                            <div class='col-md-3'>
+                                <img id='poto' class='img-responsive' >
+                            </div>
+                            <div class='col-md-8 img-responsive'>
+                                <strong><h4 id='namasiswa'>Muhammad MuhMuhMuh</h4></strong>
+                                
+                                <table>
+                                    <tr>
+                                        <td>Jurusan</td><td>&emsp;:&emsp;</td><td><span id='jur'>Bandung, 90 Desember 19999</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Angkatan</td><td>&emsp;:&emsp;</td><td><span id='angkatan'>Bandung, 90 Desember 19999</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>TTL</td><td>&emsp;:&emsp;</td><td><span id='ttl'>Bandung, 90 Desember 19999</span><span id='tgl'></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jenis Kelamin</td><td>&emsp;:&emsp;</td><td><span id='jk'>Laki-Laki</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Agama</td><td>&emsp;:&emsp;</td><td><span id='agama'>Islam</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gol Darah</td><td>&emsp;:&emsp;</td><td><span id='goldar'>O</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td><td>&emsp;:&emsp;</td><td><span id='email'>Laki-Laki</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>No Telp</td><td>&emsp;:&emsp;</td><td><span id='notelp'>Laki-Laki</span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div><?php
+                                    $name = "";
+                                    echo "<input type='hidden' id='id' name='id'>";
+                                    ?>
+                </div>
+                <div class='modal-footer'  style='border: 0'>
+                    <div class='form-group'>
+                        <div class='col-md-4 col-md-offset-8'>
+                            <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+                            
+                        </div>
+                    </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+
+
+    <!-- Footer -->
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
@@ -393,6 +456,41 @@ $('#lampiran').bind('change', function() {
 
 
     });
+
+    </script>
+    <script>
+
+    $('#detaillamar').on('show.bs.modal', function (event) {
+
+      var button = $(event.relatedTarget); // Button that triggered the modal
+      var recipient = button.data('id'); // Extract info from data-* attributes
+      var modal = $(this);
+        $.ajax({
+            type: 'POST',
+            url: 'detlamar.php',
+            data: 'id='+recipient,
+            dataType: 'json',
+            success: function(result) {
+                modal.find("#id").val(recipient);
+                var add = '../images/uploads/'+result["foto"];
+                modal.find("#poto").attr('src',add);
+                modal.find("#namasiswa").text(result['nama_siswa']);
+                modal.find("#jur").text(result['nama_jurusan']);
+                modal.find("#ttl").text(result['tempat_lahir']);
+                modal.find("#tgl").text(result['tanggal_lahir']);
+                modal.find("#agama").text(result['agama']);
+                modal.find("#goldar").text(result['gol_darah']);
+                modal.find("#jk").text(result['jenis_kelamin']);
+                modal.find("#email").text(result['email_siswa']);
+                modal.find("#notelp").text(result['no_telepon']);
+                modal.find("#angkatan").text(result['tahun_ajaran']);
+            }
+        })
+     
+
+    });
+
+    
 
     </script>
 </body>

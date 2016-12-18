@@ -121,7 +121,14 @@ $(document).ready(function() {
                 modal.find("#namadu").text(result['nama_du']);
                 var data = result['jur'];
                 var arr = data.split(',');
-                modal.find("#jurusan").html(arr[0]+"<br>"+arr[1]);
+                var j;
+                var str='';
+                for(j=0;j<arr.length;j++){
+                    str = str+arr[j]+'<br>';
+                }
+
+                modal.find("#jurusan").html(str);
+
                 modal.find("#penanggung").text(result['penanggung_jawab']);
                 modal.find("#cp").text(result['cp']);
                 modal.find("#jenis_seleksi").text(result['seleksi']);
