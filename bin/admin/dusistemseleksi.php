@@ -37,7 +37,7 @@ if($_SESSION['level']=='admin'){
                 <div class="col-sm-12">
                     <section class="panel">
                     <header class="panel-heading">
-                        <label><big>DU Yang Menggunakan Sistem Seleksi</big></label>
+                        <label><big>DU/DI Yang Menggunakan Sistem Seleksi</big></label>
                         <span class="pull-right">
                          <a href="#myModal" data-toggle="modal" class="btn btn-xs btn-danger">NEW</a>
                          <!-- Modal -->
@@ -57,7 +57,7 @@ if($_SESSION['level']=='admin'){
 
                                                              echo "<select class='form-control m-bot15' name='id_du'>
                                                                       <option value=''> Pilih Tempat Prakerin </option>";
-                                                                          $du = mysql_query( "SELECT * FROM hb_du WHERE status_du='Menerima' AND seleksi_du='Tidak' ORDER BY nama_du ASC");
+                                                                          $du = mysql_query("SELECT hb_du_umum.id_du,nama_du FROM hb_du_permintaan, hb_du_umum WHERE status_penerimaan='Menerima' AND seleksi_du='Tidak' AND hb_du_umum.id_du=hb_du_permintaan.id_du ORDER BY nama_du ASC");
                                                                         while($z = mysql_fetch_array($du)){
 
                                                                               echo "<option value='$z[id_du]'> $z[nama_du] </option>";
@@ -95,13 +95,13 @@ if($_SESSION['level']=='admin'){
                                                     <div class="form-group">
                                                         <label class="col-lg-4 col-sm-4 control-label">Tempat Seleksi</label>
                                                         <div class="col-lg-8">
-                                                            <input type="text" class="form-control" name="tempat" placeholder="Tempat Seleksi">
+                                                            <input type="text" class="form-control" name="tempat" placeholder="Tempat Seleksi" value="<?php echo "$t[seleksi_tempat]";?>">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="col-lg-4 col-sm-4 control-label">Tanggal Seleksi</label>
-                                                        <div class="col-lg-8">
-                                                            <input type="date" class="form-control" name="tanggal" placeholder="Alamat">
+                                                        <div class="col-lg-8 flat-green">
+                                                        <input type="text" class="form-control  dpd1"  data-date-format='yyyy/mm/dd' name="tanggal" placeholder="Tanggal Seleksi"  value="<?php echo "$t[seleksi_tanggal]";?>">
                                                         </div>
                                                     </div>
                                             </div>
@@ -154,12 +154,19 @@ if($_SESSION['level']=='admin'){
                                  echo " </td>
                                         <td>
                                             <a href='#atur$d[id_du]' data-toggle='modal'>
-                                                <button class='btn btn-sm btn-primary' type='button'><i class='fa fa-trash-o'></i> Atur </button>
+                                                <button class='btn btn-sm btn-info' type='button'><i class='fa fa-pencil'></i> Atur </button>
                                             </a>
                                             <a href='#edit$d[id_du]' data-toggle='modal'>
-                                                <button class='btn btn-sm btn-primary' type='button'><i class='fa fa-trash-o'></i> Ganti Sistem Seleksi </button>
+                                                <button class='btn btn-sm btn-primary' type='button'><i class='fa fa-edit'></i> Ganti Sistem Seleksi </button>
+                                            </a>
+                                            <a href='#tutup$d[id_du]' data-toggle='modal'>
+                                                <button class='btn btn-sm btn-danger' type='button'><i class='fa fa-times'></i> Tutup Pendaftaran </button>
+                                            </a>
+                                            <a href='detail_pendaftaran_tes.php?id=$d[id_du]' data-toggle='modal'>
+                                                <button class='btn btn-sm btn-success' type='button'><i class='fa fa-bars'></i> </button>
                                             </a>
                                         </td>
+                                        
                                         <div  style='text-transform:none' aria-hidden='true' aria-labelledby='myModalLabel' role='dialog' tabindex='-1' id='edit$d[id_du]' class='modal fade'>
                                             <div class='modal-dialog'>
                                                 <div class='modal-content'>
@@ -168,12 +175,31 @@ if($_SESSION['level']=='admin'){
                                                         <h5>Konfirmasi</h5>
                                                     </div>
                                                     <div class='modal-body'>
-                                                        Ganti Menjadi 'Tidak Menggunakan Sistem Seleksi' ?
+                                                        Ganti Menjadi <b>'Tidak Menggunakan Sistem Seleksi'? </b>
                                                     </div>
                                                     <div class='modal-footer'>
                                                         <button type='button' class='btn btn-default' data-dismiss='modal'>Kembali</button>
                                                         <a href='proses_admin.php?a=gantisistem&id=$d[id_du]'>
                                                             <input type='submit' value='Ganti' name='Ganti' class='btn btn-success'>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div  style='text-transform:none' aria-hidden='true' aria-labelledby='myModalLabel' role='dialog' tabindex='-1' id='tutup$d[id_du]' class='modal fade'>
+                                            <div class='modal-dialog'>
+                                                <div class='modal-content'>
+                                                    <div class='modal-header'>
+                                                        <button aria-hidden='true' data-dismiss='modal' class='close' type='button'>×</button>
+                                                        <h5>Konfirmasi</h5>
+                                                    </div>
+                                                    <div class='modal-body'>
+                                                        Tutup pendaftaran di DU <b>$d[nama_du] </b>? </b>
+                                                    </div>
+                                                    <div class='modal-footer'>
+                                                        <button type='button' class='btn btn-default' data-dismiss='modal'>Kembali</button>
+                                                        <a href='proses_admin.php?a=tutup_tes&id=$d[id_du]'>
+                                                            <input type='submit' value='Tutup' name='Ganti' class='btn btn-danger'>
                                                         </a>
                                                     </div>
                                                 </div>

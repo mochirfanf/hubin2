@@ -3,13 +3,13 @@
 include "../koneksidb.php";
 
 if($_SESSION['level']=='admin'){
-	if ($_SESSION['tahun_ajaran']!='') {
+    if ($_SESSION['tahun_ajaran']!='') {
         $title="Permohonan Perizinan Prakerin";
         $active ="";
         $active5 = "active";
         $navactive2 ="nav-active";
 
-		include "leftside.php"; ?>
+        include "leftside.php"; ?>
 
         <!--body wrapper start-->
         <?php 
@@ -30,24 +30,38 @@ if($_SESSION['level']=='admin'){
                         <div class="form-group">
                             <br><br>
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Permintaan Jurusan : </label>
-                                <div class="input_fields_wrap col-lg-1">
-                                    <button class="btn btn-danger add_field_button"><i class='fa fa-plus-square'></i></button>
-                                </div>
+                            <div class="input_fields_wrap col-lg-1" >
+                                <button class="btn btn-danger add_field_button"><i class='fa fa-plus-square'></i></button>
+                            </div>
 
-                                <div style="margin-left: -50px;"  class="col-lg-4"><?php
-                                    $name = "";
-                                    echo "<select required class='form-control m-bot15' name='jurusan[]'>
-                                            <option value=''> * Pilih Jurusan * </option>";
-                                                $jurusan = mysql_query("SELECT * FROM jurusan");
-                                                while($j = mysql_fetch_array($jurusan)){
-                                     echo " <option value='$j[id_jurusan]' > $j[nama_jurusan] </option>";
-                                                }
-                                    echo "</select>";?>
-                                </div>
+                            <div style="margin-left: -50px;"  class="col-lg-4">
+                                <?php
+                                $name = "";
+                                 echo "<select class='form-control m-bot15' name='jurusan[]' required>
+                                          <option value=''> * Pilih Jurusan * </option>";
+                                            $jurusan = mysql_query("SELECT * FROM jurusan");
+                                            while($j = mysql_fetch_array($jurusan)){
+                                 echo " <option value='$j[id_jurusan]'> $j[nama_jurusan] </option>";
+                                            }
+                                         echo "
+                                      </select>";
+                                ?>
 
-                                <div style="margin-left: -25px;"  class="col-lg-2">
-                                    <input type="number" class="form-control" name="jumlah[]" placeholder="Jumlah" required>
+                            </div>
+                            <div style="margin-left: -25px;width: 11.666667%;"  class="col-lg-2" >
+                                <input type="text" class="form-control" name="jumlah[]" placeholder="Jumlah" required>
+                            </div>
+                            <div class='col-md-5 col-md-offset-3' style="width: 47.666667%;">
+                                <div class='col-md-12' style='padding:0 10px 0 0'>
+                                    <input type="text" name="skill[]" placeholder="Spesifikasi Keterampilan/Skill " class="form-control" required>
                                 </div>
+                                <div class='col-md-12' style='padding:0'>
+                                    <small style='color: #D9534F'> Contoh : Web, Microcontroller, Video Editing, C++, Jaringan </small>
+                                </div>
+                            </div>
+                            <div class="input_fields col-md-6 col-md-offset-3">
+                                
+                            </div>
                         </div>
                         <div class="form-group">
                             <br>
@@ -61,34 +75,36 @@ if($_SESSION['level']=='admin'){
                             </div>
                         </div>
                         <div class="form-group">
-                            <br>
+                            <br><br>
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Nama Penanggung Jawab :</label>
                             <div class="col-lg-6 flat-green">
                                 <input type="text" class="form-control" name="nama_pj" placeholder="Nama Penanggung Jawab" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <br>
+                            <br><br>
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Kontak Penanggung Jawab :</label>
                             <div class="col-lg-6 flat-green">
                                 <input type="text" class="form-control" name="contact" placeholder="Kontak Penanggung Jawab" required>
                             </div>
                         </div>
+                        
                         <div class="form-group">
-                            <br>
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Jenis Seleksi :</label>
+                            <br><br>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Recruitment melalui :</label>
                             <div class="col-lg-6 flat-green">
                                 <?php
 
-                                    echo "<select class='form-control m-bot15' name='seleksi'>
-                                                <option value='Ya'> Ya </option>
-                                                <option value='Tidak'> Tidak </option>
-                                          </select><br>";
+                                    echo "<select class='form-control m-bot15' name='seleksi' id='sel'>
+                                          <option value='Tidak'> Tanpa Seleksi </option>
+                                          <option value='Ya'> Seleksi </option>
+                                      </select>";
                                 ?>
                             </div>
                         </div>
                         <div class="form-group">
                         <div class="col-lg-offset-7 col-lg-5">
+                                <br>
                                 <a type="button" href="penerima_permintaan_prakerin.php" class="btn btn-danger"> Kembali </a>
                                 <button value='Tambahkan' name='Tambahkan' type='submit' name='submit' class="btn btn-primary"> Submit </button>
                             <br><br><br>
@@ -100,12 +116,12 @@ if($_SESSION['level']=='admin'){
     </div>
         <!--body wrapper end-->
 
-<?php		include "footer.php";
-	}else{
-		header('location:tahun_ajaran.php');
-	}
+<?php       include "footer.php";
+    }else{
+        header('location:tahun_ajaran.php');
+    }
 }else{
-	header('location:../login.php');
+    header('location:../login.php');
 }
 
 ?>

@@ -19,7 +19,7 @@ if($_SESSION['level']=='admin'){
                 <div class="col-sm-12">
                     <section class="panel">
                     <header class="panel-heading">
-                        <big>Permohonan Perizinan Prakerin</big>
+                        <big>Permintaan Perusahaan yang Ditolak</big>
                          <span class="pull-right">
 
                          </span>
@@ -35,7 +35,7 @@ if($_SESSION['level']=='admin'){
                         <th>Alamat dan Email</th>
                         <th>Info Permintaan</th>
                         <th>Alasan Menolak</th>
-                        <th></th>
+                        <th>Aksi</th>
                     </tr>
                     </thead>
                     <tbody>

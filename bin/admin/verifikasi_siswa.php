@@ -22,10 +22,20 @@ if($_SESSION['level']=='admin'){
     if ($_SESSION['tahun_ajaran']!='') {
         $title="Permohonan Perizinan Prakerin";
         $active="";
-        $active16 = "active";
         $navactive9 ="nav-active";
 
         $jurusan = $_GET["jurusan"];
+
+        if ($jurusan == "RPL") { $active16 = "active"; }
+        if ($jurusan == "KM") { $active17 = "active"; }
+        if ($jurusan == "KP") { $active18 = "active"; }
+        if ($jurusan == "TEI") { $active19 = "active"; }
+        if ($jurusan == "TEK") { $active20 = "active"; }
+        if ($jurusan == "TKJ") { $active21 = "active"; }
+        if ($jurusan == "TOI") { $active22 = "active"; }
+        if ($jurusan == "TP4") { $active23 = "active"; }
+        if ($jurusan == "TPTU") { $active24 = "active"; }
+
         $j = mysql_fetch_array(mysql_query("SELECT * FROM jurusan WHERE singkatan='$jurusan'"));
 
         $data = mysql_query( "SELECT * FROM hb_du_umum, hb_du_penerima, hb_du_permintaan WHERE hb_du_umum.id_du = hb_du_penerima.id_du  AND status_penerimaan='Menerima'  AND hb_du_umum.id_du = hb_du_permintaan.id_du AND hb_du_penerima.tahun_ajaran='$_SESSION[tahun_ajaran]' AND id_jurusan = '$j[id_jurusan]' AND hb_du_penerima.sisa_kuota_penerimaan='0'");

@@ -20,7 +20,7 @@ if($_SESSION['level']=='admin'){
                 <div class="col-sm-12">
                     <section class="panel">
                     <header class="panel-heading">
-                        <big>Jawaban DU / DI untuk Prakerin</big>
+                        <big>Jawaban DU / DI dari Kapprog untuk Prakerin</big>
                     </header>
 
                     <div class="panel-body">

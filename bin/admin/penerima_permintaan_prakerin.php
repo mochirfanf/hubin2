@@ -3,7 +3,7 @@
 include "../koneksidb.php";
 
 if($_SESSION['level']=='admin'){
-	if ($_SESSION['tahun_ajaran']!='') {
+    if ($_SESSION['tahun_ajaran']!='') {
         $title="Permohonan Perizinan Prakerin";
         $active ="";
         $active5 = "active";
@@ -11,7 +11,7 @@ if($_SESSION['level']=='admin'){
 
         $data = mysql_query("SELECT * from hb_du_umum, hb_du_permintaan WHERE status_penerimaan='Proses' AND hb_du_umum.id_du = hb_du_permintaan.id_du AND permintaan_hubin='Ya'");
 
-		include "leftside.php"; ?>
+        include "leftside.php"; ?>
 
         <!--body wrapper start-->
         <div class="wrapper">
@@ -32,8 +32,8 @@ if($_SESSION['level']=='admin'){
                     <tr>
                         <th>No</th>
                         <th>Nama Dunia Usaha</th>
-                        <th>Alamat </th>
-                        <th>Email </th>
+                        <th>Alamat dan Email</th>
+                        <th>Keterangan </th>
                         <th>Aksi</th>
                     </tr>
                     </thead>
@@ -56,8 +56,9 @@ if($_SESSION['level']=='admin'){
                                              <br> Kab/Kota : $kab[nama]
                                              <br> Provinsi : $prov[nama]
                                              <br> Kode Pos : $d[no_kodepos]
+                                             <br><br> Email :  $d[email_du]
                                         </td>
-                                        <td> $d[email_du]</td>
+                                        <td> $d[keterangan_permintaan]</td>
                                         <td class='center'>
                                             <a href='prakerin.php?id=$d[id_du]' data-toggle='modal'>
                                                 <button class='btn btn-sm btn-info' type='button'><i class='fa fa-check'></i> Menerima </button>
@@ -75,7 +76,7 @@ if($_SESSION['level']=='admin'){
                                                             <h5>Konfirmasi</h5>
                                                         </div>
                                                         <div class='modal-body'>
-                                                            Apakah DU $d[nama_du] Telah Menolak Perizinan Prakerin?
+                                                            Apakah DU <b>$d[nama_du]</b> Telah Menolak Perizinan Prakerin?
                                                         </div>
                                                        <div class='modal-footer'>
                                                             <button type='button' class='btn btn-default' data-dismiss='modal'>Kembali</button>
@@ -100,12 +101,12 @@ if($_SESSION['level']=='admin'){
         </div>
         <!--body wrapper end-->
 
-<?php		include "footer.php";
-	}else{
-		header('location:tahun_ajaran.php');
-	}
+<?php       include "footer.php";
+    }else{
+        header('location:tahun_ajaran.php');
+    }
 }else{
-	header('location:../login.php');
+    header('location:../login.php');
 }
 
 ?>

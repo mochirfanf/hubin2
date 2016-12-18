@@ -32,7 +32,7 @@ if($_SESSION['level']=='admin'){
                     <th>Nama Dunia Usaha</th>
                     <th> Jumlah Penerimaan</th>
                     <th>Sisa Kuota Penerimaan</th>
-                    <th>Sistem Seleksi</th>
+                    <th>Keterangan Skill</th>
                     <th>Aksi</th>";
         }
         function isinya($query){
@@ -53,13 +53,13 @@ if($_SESSION['level']=='admin'){
                                 echo "$d[sisa_kuota_penerimaan] orang";
                             }
                   echo "</td>
-                        <td> $d[seleksi_du]</td>
+                        <td> $d[ket_skill]</td>
                         <td class='center'>
                             <a href='#jedit$d[id_du]-$d[id_jurusan]' data-toggle='modal'>
-                                <button class='btn btn-sm btn-primary' type='button'><i class='fa fa-trash-o'></i> Edit </button>
+                                <button class='btn btn-sm btn-info' type='button'><i class='fa fa-pencil'></i> Edit </button>
                             </a>
                             <a href='#jhapus$d[id_du]-$d[id_jurusan]' data-toggle='modal'>
-                                <button class='btn btn-sm btn-primary' type='button'><i class='fa fa-trash-o'></i> Hapus </button>
+                                <button class='btn btn-sm btn-danger' type='button'><i class='fa fa-trash-o'></i> Hapus </button>
                             </a>
                         </td>
                             <div  style='text-transform:none' aria-hidden='true' aria-labelledby='myModalLabel' role='dialog' tabindex='-1' id='jhapus$d[id_du]-$d[id_jurusan]' class='modal fade'>
@@ -99,15 +99,18 @@ if($_SESSION['level']=='admin'){
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-                                                <h5><big>Jumlah Penerimaan</big></h5>
+                                                <h5><big>Jumlah Penerimaan dan Keterangan Skill</big></h5>
                                             </div>
                                             <div class="modal-body">
                                                 <form method="POST" action="proses_admin.php?a=editjpenerima<?php echo "&id=$t[id_du]&id_jurusan=$t[id_jurusan]";?>"  enctype='multipart/form-data' class="form-horizontal" role="form">
 
                                                     <div class="form-group">
+                                                        <div class="col-lg-2">
+                                                            <input type="number" required="" class="form-control" name="jpen" value="<?php echo "$e[jumlah_penerimaan]"; ?>" placeholder="Jumlah">
+                                                        </div>
 
-                                                        <div class="col-lg-offset-2 col-lg-8">
-                                                            <input type="text" class="form-control" name="jpen" value="<?php echo "$e[jumlah_penerimaan]"; ?>" placeholder="Nama Dunia Usaha">
+                                                        <div class="col-lg-10">
+                                                            <input type="text" required="" class="form-control" name="skill" placeholder="Spesifikasi Keterampilan/Skill" value="<?php echo "$e[ket_skill]"; ?>" >
                                                         </div>
                                                     </div>
                                             </div>
@@ -131,7 +134,7 @@ if($_SESSION['level']=='admin'){
                 <div class="col-sm-12">
                     <section class="panel">
                     <header class="panel-heading">
-                        <label><big>DU/DI Penerima Prakerin Siswa</big></label>
+                        <label><big>DU/DI Penerima Prakerin Siswa dari Perusahaan</big></label>
                     </header>
 
                    <section class="panel">
@@ -243,7 +246,7 @@ if($_SESSION['level']=='admin'){
 
                                                     <div class="form-group">
                                                     <br>
-                                                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Jenis Seleksi :</label>
+                                                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Recruitment Seleksi :</label>
                                                         <div class="col-lg-8 flat-green">
                                                             <?php
                                                                 echo "<select class='form-control m-bot15' name='seleksi'>
@@ -303,6 +306,13 @@ if($_SESSION['level']=='admin'){
                                                         </div>
                                                     </div>
                                                     
+                                                    <div class="form-group">
+                                                        <br>
+                                                        <label class="col-lg-4 col-sm-4 control-label">Spesifikasi Skill :</label>
+                                                        <div class="col-lg-8">
+                                                            <input type="text" required="" class="form-control" name="skill" placeholder="Spesifikasi Keterampilan/Skill">
+                                                        </div>
+                                                    </div>
                                             </div>
                                            <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>

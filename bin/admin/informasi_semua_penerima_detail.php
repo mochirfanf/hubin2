@@ -1,32 +1,25 @@
 <?php
-
 include "../koneksidb.php";
-
 function tanggal($tglnya){
         $asli = date($tglnya);
         $ganti=str_replace("-", "/", $asli);
         $jadi= strtotime($ganti);
-
         $tanggal = date("j", $jadi);
         $tahun = date("Y", $jadi);
         $bulan = date("n", $jadi);
-
         $array_bulan = array(1 => "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember" );
         $bulan2 = $array_bulan[date($bulan)];
         
         $hasil = "$tanggal $bulan2 $tahun";
         return $hasil;
     }
-
 if($_SESSION['level']=='admin'){ 
     if ($_SESSION['tahun_ajaran']!='') {
         $title="Permohonan Perizinan Prakerin";
         $active="";
-        $active14 = "active";
+        $active30 = "active";
         $navactive6 ="nav-active";
-
-        $data = mysql_query( "SELECT * FROM hb_du_umum, hb_du_penerima, hb_du_permintaan, jurusan WHERE hb_du_umum.id_du = hb_du_penerima.id_du  AND status_penerimaan='Menerima'  AND hb_du_umum.id_du = hb_du_permintaan.id_du AND hb_du_penerima.tahun_ajaran='$_SESSION[tahun_ajaran]' AND permintaan_kapprog='Ya' AND hb_du_penerima.id_jurusan = jurusan.id_jurusan");
-
+        $data = mysql_query( "SELECT * FROM hb_du_umum, hb_du_penerima, hb_du_permintaan, jurusan WHERE hb_du_umum.id_du = hb_du_penerima.id_du  AND status_penerimaan='Menerima'  AND hb_du_umum.id_du = hb_du_permintaan.id_du AND hb_du_penerima.tahun_ajaran='$_SESSION[tahun_ajaran]' AND hb_du_penerima.id_jurusan = jurusan.id_jurusan");
         include "leftside.php"; ?>
                 
         <!--body wrapper start-->
@@ -35,8 +28,8 @@ if($_SESSION['level']=='admin'){
                 <div class="col-sm-12">
                     <section class="panel">
                     <header class="panel-heading">
-                        <big>Informasi Penerima Prakerin Dari Kapprog</big>
-                        <!--  <span class="pull-right"> Status : </span> -->
+                        <big>Detail Penerima Prakerin </big>
+                         <!-- <span class="pull-right"> Status : </span> -->
                     </header>
                    
                     <div class="panel-body">
@@ -49,9 +42,7 @@ if($_SESSION['level']=='admin'){
                         <th>Jurusan</th>
                         <th>Jumlah Penerimaan</th>
                         <th>Sisa Kuota Penerimaan</th>
-                        <th>Pelaksanaan</th>
-                        <th>Seleksi</th>
-                        <th>Sumber</th>
+                        <th>Keterangan Skill</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -75,13 +66,8 @@ if($_SESSION['level']=='admin'){
                                                 echo "$d[sisa_kuota_penerimaan] orang";
                                             }
                                   echo "</td>
-                                        <td> $mulai s/d $berakhir</td>
-                                        <td class='center'>  $d[seleksi_du]</td>
-                                        <td class='center'>  $d[status_du] "; 
-                                        if ($d["du_id_jurusan"]!=0) {
-                                            echo "$s[singkatan]";
-                                        }
-                                  echo "</td>
+                                        <td> $d[ket_skill]</td>
+                                        
                                     </tr>
                                     ";
                             }
@@ -103,5 +89,4 @@ if($_SESSION['level']=='admin'){
 }else{
     header('location:../login.php');
 }
-
 ?>

@@ -88,11 +88,11 @@
             <li><a href="../landing/index.php"><i class="fa fa-home"></i> <span>Beranda</span></a></li>
                 <!--<li class="<?php echo "$active"; ?> "><a href="homepage.php"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>-->
 
-                <li class="menu-list <?php echo "$navactive1"; ?>"><a href=""><i class="fa fa-building-o"></i> <span> Data DU / DI </span></a>
+                <li class="menu-list <?php echo "$navactive1"; ?>"><a href=""><i class="fa fa-building-o"></i> <span>  Permohonan Perizinan  </span></a>
                     <ul class="sub-menu-list">
-                        <li class="<?php echo "$active1"; ?> "><a href="dari_perusahaan.php"> Dari Perusahaan (DU / DI) </a></li>
-                        <li class="<?php echo "$active2"; ?> "><a href="dari_kapprog.php"> Dari Kapprog</a></li>
                         <li class="<?php echo "$active3"; ?> "><a href="dari_hubin.php"> Dari Hubin </a></li>
+                        <li class="<?php echo "$active2"; ?> "><a href="dari_kapprog.php"> Dari Kapprog</a></li>
+                        <li class="<?php echo "$active1"; ?> "><a href="dari_perusahaan.php"> Dari Perusahaan (DU / DI) </a></li>
                         <li class="<?php echo "$active4"; ?> "><a href="semua_du.php"> Semua DU / DI </a></li>
                     </ul>
                 </li>
@@ -117,9 +117,10 @@
                 <li class="menu-list <?php echo "$navactive6"; ?>"><a href=""><i class="fa fa-building-o"></i> <span>Penerima Prakerin</span></a>
                     <ul class="sub-menu-list">
                         <li class="<?php echo "$active12"; ?> "><a href="dupenerima.php"> DU / DI Penerima Prakerin dari Hubin </a></li>
-                        <li class="<?php echo "$active13"; ?> "><a href="dupenerimaperusahaan.php"> DU / DI Penerima Prakerin dari Perusahaan </a></li>
                         <li class="<?php echo "$active14"; ?> "><a href="informasi_penerima_kapprog.php"> Informasi dari Kapprog </a></li>
+                        <li class="<?php echo "$active13"; ?> "><a href="dupenerimaperusahaan.php"> DU / DI Penerima Prakerin dari Perusahaan </a></li>
                         <li class="<?php echo "$active15"; ?> "><a href="informasi_semua_penerima.php"> Rekap Penerima Prakerin </a></li>
+                        <li class="<?php echo "$active30"; ?> "><a href="informasi_semua_penerima_detail.php"> Detail Penerima Prakerin </a></li>
                     </ul>
                 </li>
                 <!--
@@ -145,50 +146,50 @@
                         <li class="<?php echo "$active24"; ?> "><a href="verifikasi_siswa.php?jurusan=TPTU"> TPTU </a></li>
                     </ul>
                 </li>
-
+<!-- 
                 <li class="menu-list <?php echo "$navactive8"; ?>"><a href=""><i class="fa fa-puzzle-piece"></i> <span>Rekapitulasi Prakerin</span></a>
                     <ul class="sub-menu-list">
                         <li class="<?php echo "$active9"; ?> "><a href="rekapitulasikapprog.php"> Rekapitulasi Kapprog</a></li>
                         <li class="<?php echo "$active10"; ?> "><a href="hasilrekapitulasi.php"> Hasil Rekapitulasi </a></li>
-                        <li class="<?php echo "$active11"; ?> "><a href=""> Surat Pengantar Prakerin</a></li>
-                    </ul>
-                </li>
-
-                <li class="menu-list <?php echo "$navactive3"; ?>"><a href=""><i class="fa fa-building-o"></i> <span>Hasil Akhir DU/DI </span></a>
-                    <ul class="sub-menu-list">
-                        <li class="<?php echo "$active15"; ?> "><a href="dupenerima.php"> Penerima Prakerin  </a></li>
-                        <li class="<?php echo "$active16"; ?> "><a href="tidak_menerima_prakerin.php"> Tidak Menerima Prakerin </a></li>
-                        <li class="<?php echo "$active17"; ?> "><a href=""> Kerjasama Langsung </a></li>
-                        <li class="<?php echo "$active18"; ?> "><a href=""> Kerjasama Tidak Langsung </a></li>
-                    </ul>
-                </li>
+                        <!-- <li class="<?php echo "$active11"; ?> "><a href=""> Surat Pengantar Prakerin</a></li> -->
+                    <!-- </ul>
+                </li> -->
 
                 <li class="menu-list <?php echo "$navactive7"; ?>"><a href=""><i class="fa fa-cogs"></i> <span>Monitoring</span></a>
                     <ul class="sub-menu-list">
                         <li class="<?php echo "$active12"; ?> "><a href="pilihguru.php"> Daftar Petugas Prakerin</a></li>
-                        <li class="<?php echo "$active13"; ?> "><a href=""> Buat Surat Tugas Monitoring</a></li>
-                        <li class="<?php echo "$active14"; ?> "><a href=""> Hasil Monitoring</a></li>
+                        <li class="<?php echo "$active13"; ?> "><a href="#"> Buat Surat Tugas Monitoring</a></li>
+                        <li class="<?php echo "$active14"; ?> "><a href="#"> Hasil Monitoring</a></li>
                     </ul>
                 </li>
 
                 <li class="menu-list <?php echo "$navactive11"; ?>"><a href=""><i class="fa fa-users"></i> <span>Penelusuran Tamatan</span></a>
                     <ul class="sub-menu-list">
-                        <li class="<?php echo "$active15"; ?> "><a href="penelusuran_tamatan_tk4.php"> Tingkat IV </a></li>
-                        <li class="<?php echo "$active16"; ?> "><a href="penelusuran_tamatan.php"> Semua Angkatan </a></li>
+                        <li class="<?php echo "$active28"; ?> "><a href="penelusuran_tamatan_tk4.php"> Tingkat IV </a></li>
+                        <li class="<?php echo "$active29"; ?> "><a href="penelusuran_tamatan.php"> Semua Angkatan </a></li>
                     </ul>
                 </li>
 
                 <li class="menu-list <?php echo "$navactive10"; ?>"><a href=""><i class="fa fa-bar-chart-o"></i> <span> Presentase / Grafik </span></a>
                     <ul class="sub-menu-list">
-                          <li class="<?php echo "$active11"; ?> "><a href=""> Grafik Prakerin</a></li>
+                          <li class="<?php echo "$active30"; ?> "><a href=""> Grafik Prakerin</a></li>
                     </ul>
                 </li>
 
-                <li class="<?php echo "$active18"; ?> "><a href="inputberita.php"><i class="fa fa-sign-in"></i> <span> Buat Informasi / Berita </span></a></li>
+                <li class="menu-list <?php echo "$navactive3"; ?>"><a href=""><i class="fa fa-building-o"></i> <span>Hasil Akhir DU/DI </span></a>
+                    <ul class="sub-menu-list">
+                        <li class="<?php echo "$active15"; ?> "><a href="#"> Penerima Prakerin  </a></li>
+                        <li class="<?php echo "$active25"; ?> "><a href="#"> Tidak Menerima Prakerin </a></li>
+                        <li class="<?php echo "$active26"; ?> "><a href="#"> Kerjasama Langsung </a></li>
+                        <li class="<?php echo "$active27"; ?> "><a href="#"> Kerjasama Tidak Langsung </a></li>
+                    </ul>
+                </li>
 
-                <li class="<?php echo "$active19"; ?> "><a href=""><i class="fa fa-sign-in"></i> <span> Pemberitahuan </span></a></li>
+                <li class="<?php echo "$active31"; ?> "><a href="inputberita.php"><i class="fa fa-sign-in"></i> <span> Buat Informasi / Berita </span></a></li>
 
-                <li class="<?php echo "$active20"; ?> "><a href=""><i class="fa fa-sign-in"></i> <span>Lain - Lain </span></a></li>
+                <li class="<?php echo "$active32"; ?> "><a href=""><i class="fa fa-sign-in"></i> <span> Pemberitahuan </span></a></li>
+
+                <li class="<?php echo "$active33"; ?> "><a href=""><i class="fa fa-sign-in"></i> <span>Lain - Lain </span></a></li>
 
             </ul>
             <!--sidebar nav end-->

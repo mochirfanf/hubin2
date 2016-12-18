@@ -21,7 +21,7 @@ if($_SESSION['level']=='admin'){
                 <div class="col-sm-12">
                     <section class="panel">
                     <header class="panel-heading">
-                        <big>Permohonan Perizinan Prakerin</big>
+                        <big>Permohonan Perizinan Prakerin Perusahaan</big>
                          <span class="pull-right">
 
                          </span>
@@ -100,7 +100,7 @@ if($_SESSION['level']=='admin'){
                                                             <h5>Verifikasi Permintaan Prakerin</h5>
                                                         </div>
                                                         <div class='modal-body'>
-                                                            Apakah anda ingin menerima permintaan prakerin dari :  $d[nama_du] ?
+                                                            Apakah anda ingin menerima permintaan prakerin dari :  <b> $d[nama_du]?</b>
                                                         </div>
                                                        <div class='modal-footer'>
                                                             <button type='button' class='btn btn-default' data-dismiss='modal'>Kembali</button>

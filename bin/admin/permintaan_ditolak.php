@@ -3,7 +3,7 @@
 include "../koneksidb.php";
 
 if($_SESSION['level']=='admin'){
-	if ($_SESSION['tahun_ajaran']!='') {
+    if ($_SESSION['tahun_ajaran']!='') {
         $title="Permohonan Perizinan Prakerin";
         $active = "";
         $active3 = "active";
@@ -14,7 +14,7 @@ if($_SESSION['level']=='admin'){
 
         $data3 = mysql_query("SELECT * FROM hb_du_umum,hb_du_permintaan WHERE status_permintaan='Verifikasi Ditolak' AND hb_du_permintaan.tahun_ajaran = '$_SESSION[tahun_ajaran]' AND hb_du_umum.id_du = hb_du_permintaan.id_du");
 
-		include "leftside.php"; ?>
+        include "leftside.php"; ?>
 
         <!--body wrapper start-->
         <div class="wrapper">
@@ -78,12 +78,12 @@ if($_SESSION['level']=='admin'){
         </div>
         <!--body wrapper end-->
 
-<?php		include "footer.php";
-	}else{
-		header('location:tahun_ajaran.php');
-	}
+<?php       include "footer.php";
+    }else{
+        header('location:tahun_ajaran.php');
+    }
 }else{
-	header('location:../login.php');
+    header('location:../login.php');
 }
 
 ?>
