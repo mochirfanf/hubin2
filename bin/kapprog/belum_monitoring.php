@@ -9,7 +9,7 @@ if($_SESSION['level']=='kapprog'){
         $active14 = "active";
         $navactive7 ="nav-active";
 
-        $data = mysql_query( "SELECT * FROM hb_monitoring WHERE nip_guru = $_SESSION[username] AND tahun_ajaran='$_SESSION[tahun_ajaran]' AND nilai !=''")or die(mysql_error());
+        $data = mysql_query( "SELECT * FROM hb_monitoring WHERE nip_guru = $_SESSION[username] AND tahun_ajaran='$_SESSION[tahun_ajaran]' AND nilai =''")or die(mysql_error());
        
        
         include "leftside.php"; ?>
@@ -81,9 +81,9 @@ if($_SESSION['level']=='kapprog'){
             <div class='modal-content'>
                 <div class='modal-header'>
                     <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
-                    <h4 class='modal-title' id='myModalLabel'>Register Perusahaan</h4> </div>
+                    <h4 class='modal-title' id='myModalLabel'>Nilai Monitoring</h4> </div>
                 <div class='modal-body'>
-                    <form class='form-horizontal form-label-left' method='POST' action='proses_guru.php?a=monitoring' enctype='multipart/form-data'>
+                    <form class='form-horizontal form-label-left' method='POST' action='proses_kapprog.php?a=monitoring' enctype='multipart/form-data'>
                        <input type='hidden' id='iddu' name='iddu'>
                             <div class='item form-group'>
                                 <label class='control-label col-md-5 col-sm-3 col-xs-12' for='name'>Yang Menerima : <span class='required'></span> </label>

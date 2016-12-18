@@ -34,7 +34,7 @@ if($_SESSION['level']=='kapprog'){
                         <th>Alamat Tempat Prakerin</th>
                         <th>Kota</th>
                         <th>Penanggung Jawab</th>
-                        <th>Aksi</th>
+                        <th>Petugas</th>
                     </tr>
                     </thead>
                     <tbody>

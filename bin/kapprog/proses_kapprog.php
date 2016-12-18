@@ -11,6 +11,31 @@ if($_SESSION['level']=='kapprog'){
 	if (!empty($_GET ["a"])) {
 		switch ($_GET ["a"]){
 
+			case "monitoring" :
+				if(isset($_POST['pilih'])){
+						$nilai = anti_injection($_POST['nilai']);
+						$yg_menerima = anti_injection($_POST['yg_menerima']);
+						$kegiatan = anti_injection($_POST['kegiatansiswa']);
+						$masalah = anti_injection($_POST['masalah']);
+						$saran = anti_injection($_POST['saran']);
+						mysql_query("UPDATE hb_monitoring SET nilai='$nilai', yang_menerima='$yg_menerima', kegiatan_siswa='$kegiatan', masalah_yg_ditemukan='$masalah', saran='$saran', tahun_ajaran='$_SESSION[tahun_ajaran]', nip_guru='$_SESSION[username]' WHERE id_du='$_POST[iddu]'") or die ("Ups! Gagal Ditambahkan, Silahkan Coba Lagi! ".mysql_error());
+					
+					
+					header("location:belum_monitoring.php");
+				}
+
+			break;
+
+			case "tanggalmonitoring" :
+				if(isset($_POST['pilih'])){
+
+						mysql_query("UPDATE hb_monitoring SET tgl_monitoring='$_POST[tgl_monitoring]' WHERE id_du='$_POST[iddu]'") or die ("Ups! Gagal Ditambahkan, Silahkan Coba Lagi! ".mysql_error());
+					
+					header("location:daftarsiswa_monitoring.php");
+				}
+
+			break;
+
 			case "verifikasibimbingan":
 			mysql_query("UPDATE hb_bimbingan_tatap SET status='Sudah Terverifikasi' WHERE id_bimbingan_tatap='$_POST[id]'") or die ("Ups! Gagal Ditambahkan, Silahkan Coba Lagi! ".mysql_error());
 					

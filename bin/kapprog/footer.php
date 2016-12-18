@@ -156,6 +156,33 @@ $('#verifikasibimbingan').on('show.bs.modal', function (event) {
 
     });
     </script>
+              <script>
+
+    $('#nilai').on('show.bs.modal', function (event) {
+
+      var button = $(event.relatedTarget); // Button that triggered the modal
+      var recipient = button.data('iddu'); // Extract info from data-* attributes
+      var modal = $(this);
+        $.ajax({
+            type: 'POST',
+            url: 'nilai.php',
+            data: 'id='+recipient,
+            dataType: 'json',
+            success: function(result) {
+                modal.find("#iddu").val(recipient);
+                modal.find("#nilai").val(result['nilai']);
+                modal.find("#kegiatan").val(result['kegiatan_siswa']);
+                modal.find("#yg_menerima").val(result['yang_menerima']);
+                modal.find("#masalah").val(result['masalah_yg_ditemukan']);
+                modal.find("#saran").val(result['saran']);
+            }
+        })
+     
+
+    });
+</script>
+    
+
 <script type="text/javascript" src="../js/ajax_daerah.js"></script>
   <link href="../css/admin.css" rel="stylesheet">
 </body>
