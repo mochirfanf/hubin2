@@ -707,7 +707,7 @@ if($_SESSION['level']=='admin'){
 
 				$data = mysql_query("SELECT * FROM hb_du_jumlah_permintaan_du WHERE id_du = '$id'");
 				while ($d=mysql_fetch_array($data)) {
-					mysql_query("INSERT INTO "hb_du_pener"ima (id_du, tahun_ajaran, id_jurusan, jumlah_penerimaan, sisa_kuota_penerimaan) VALUES ('$id', '$_SESSION[tahun_ajaran]' , '$d[id_jurusan]', '$d[jumlah_penerimaan]', '$d[jumlah_penerimaan]')");
+					mysql_query("INSERT INTO hb_du_penerima (id_du, tahun_ajaran, id_jurusan, jumlah_penerimaan, sisa_kuota_penerimaan) VALUES ('$id', '$_SESSION[tahun_ajaran]' , '$d[id_jurusan]', '$d[jumlah_penerimaan]', '$d[jumlah_penerimaan]')");
 				}
 				?>
 					<script>

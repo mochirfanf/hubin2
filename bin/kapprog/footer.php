@@ -126,6 +126,36 @@ $("#plus1").click(function(){
 });
     </script>
 
+
+<script>
+
+    $('#pilihpem').on('show.bs.modal', function (event) {
+
+        var button = $(event.relatedTarget); // Button that triggered the modal
+
+        var recipient = button.data('nis'); // Extract info from data-* attributes
+
+      
+
+        var modal = $(this);
+
+        modal.find("#nis").val(recipient);
+
+
+    });
+$('#verifikasibimbingan').on('show.bs.modal', function (event) {
+
+        var button = $(event.relatedTarget); // Button that triggered the modal
+
+        var recipient = button.data('id'); // Extract info from data-* attributes
+
+
+        var modal = $(this);
+
+        modal.find("#id").val(recipient);
+
+    });
+    </script>
 <script type="text/javascript" src="../js/ajax_daerah.js"></script>
   <link href="../css/admin.css" rel="stylesheet">
 </body>
