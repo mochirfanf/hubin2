@@ -11,8 +11,14 @@ if($_SESSION['level']=='admin'){
 	if (!empty($_GET ["a"])) {
 		switch ($_GET ["a"]){
 			case "petugasmon":
+				$d = mysql_num_rows(mysql_query("SELECT * FROM hb_monitoring WHERE id_du='$_POST[id_du]' AND tahun_ajaran='$_SESSION[tahun_ajaran]'"));
+				if($d>0){
+					mysql_query("UPDATE hb_monitoring SET nip_guru='$_POST[nip_guru]' WHERE id_du='$_POST[id_du]' AND tahun_ajaran='$_SESSION[tahun_ajaran]'");
+				}else{
 
 				mysql_query("INSERT INTO hb_monitoring (id_du,nip_guru,tahun_ajaran) VALUES('$_POST[id_du]','$_POST[nip_guru]','$_SESSION[tahun_ajaran]')") or die ("Ups! Gagal Ditambahkan, Silahkan Coba Lagi! ".mysql_error());
+
+				}
 
 				header("location:pilihguru.php");
 			break;
