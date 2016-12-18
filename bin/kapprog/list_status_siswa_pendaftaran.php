@@ -22,7 +22,7 @@ if($_SESSION['level']=='kapprog'){
                 <div class="col-sm-12">
                     <section class="panel">
                     <header class="panel-heading">
-                        <big>Permohonan DU/DI</big>
+                        <big>Informasi List Status Siswa </big>
                          <span class="pull-right"></span>
                     </header>
 

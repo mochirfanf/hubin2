@@ -22,8 +22,8 @@ if($_SESSION['level']=='kapprog'){
     if ($_SESSION['tahun_ajaran']!='') {
         $title="Permohonan Perizinan Prakerin";
         $active="";
-        $active18 = "active";
-        $navactive7 ="nav-active";
+        $active16 = "active";
+        $navactive5 ="nav-active";
 
         $data = mysql_query( "SELECT * FROM hb_du_umum, hb_du_penerima, hb_du_permintaan WHERE hb_du_umum.id_du = hb_du_penerima.id_du AND hb_du_penerima.id_jurusan = '$_SESSION[jurusan]' AND status_penerimaan='Menerima'  AND hb_du_umum.id_du = hb_du_permintaan.id_du AND hb_du_penerima.tahun_ajaran='$_SESSION[tahun_ajaran]' ");
 

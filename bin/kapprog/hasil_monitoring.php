@@ -20,7 +20,7 @@ if($_SESSION['level']=='kapprog'){
                 <div class="col-sm-12">
                     <section class="panel">
                     <header class="panel-heading">
-                        <big>Daftar Siswa yang Dimonitoring</big>
+                        <big>Daftar Siswa yang Sudah Dimonitoring</big>
                          
                     </header>
                    

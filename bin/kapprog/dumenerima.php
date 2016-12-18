@@ -18,7 +18,7 @@ if($_SESSION['level']=='kapprog'){
                 <div class="col-sm-12">
                     <section class="panel">
                     <header class="panel-heading">
-                        <label><big> DU / DI yang Telah Diizinkan </big></label>
+                        <label><big> DU / DI yang Menerima Berdasarkan permohonan </big></label>
                     </header>
 
                    <section class="panel">

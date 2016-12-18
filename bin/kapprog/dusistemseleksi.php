@@ -7,7 +7,7 @@ if($_SESSION['level']=='kapprog'){
         $title="DU Sistem Seleksi";
         $active ="";
         $active7 = "active";
-        $navactive5 ="nav-active";
+        $navactive4 ="nav-active";
 
         $data = mysql_query("SELECT * FROM hb_du_permintaan, hb_du_umum, hb_du_penerima WHERE seleksi_du ='Ya' AND hb_du_permintaan.id_du=hb_du_umum.id_du AND status_penerimaan!='Menolak' AND status_permintaan!='Belum Terverifikasi' AND status_permintaan!='Verifikasi Ditolak' AND hb_du_penerima.id_du = hb_du_permintaan.id_du AND hb_du_penerima.id_jurusan='$_SESSION[jurusan]' AND tutup_tes!='Ya'");
         $data2 = mysql_query("SELECT * FROM hb_du_permintaan, hb_du_umum, hb_du_penerima WHERE seleksi_du ='Ya' AND hb_du_permintaan.id_du=hb_du_umum.id_du AND status_penerimaan!='Menolak' AND status_permintaan!='Belum Terverifikasi' AND status_permintaan!='Verifikasi Ditolak' AND hb_du_penerima.id_du = hb_du_permintaan.id_du AND hb_du_penerima.id_jurusan='$_SESSION[jurusan]' AND tutup_tes!='Ya'");

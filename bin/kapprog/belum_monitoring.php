@@ -6,7 +6,7 @@ if($_SESSION['level']=='kapprog'){
     if ($_SESSION['tahun_ajaran']!='') {
         $title="Daftar Siswa yang Dimonitoring";
         $active ="";
-        $active14 = "active";
+        $active15 = "active";
         $navactive7 ="nav-active";
 
         $data = mysql_query( "SELECT * FROM hb_monitoring WHERE nip_guru = $_SESSION[username] AND tahun_ajaran='$_SESSION[tahun_ajaran]' AND nilai =''")or die(mysql_error());
@@ -20,7 +20,7 @@ if($_SESSION['level']=='kapprog'){
                 <div class="col-sm-12">
                     <section class="panel">
                     <header class="panel-heading">
-                        <big>Daftar Siswa yang Dimonitoring</big>
+                        <big>Daftar Siswa yang Belum Dimonitoring</big>
                          
                     </header>
                    
