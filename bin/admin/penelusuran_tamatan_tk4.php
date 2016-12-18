@@ -6,7 +6,7 @@ if($_SESSION['level']=='admin'){
     if ($_SESSION['tahun_ajaran']!='') {
         $title="Permohonan Perizinan Prakerin";
         $active = "";
-        $active15 = "active";
+        $active29 = "active";
         $navactive11 ="nav-active";
        
         function tanggal($tglnya){
@@ -35,7 +35,7 @@ if($_SESSION['level']=='admin'){
                 <div class="col-sm-12">
                     <section class="panel">
                     <header class="panel-heading">
-                        <label><big>Riwayat Kegiatan</big></label>
+                        <label><big>Penelusuran Tamatan Tingkat IV</big></label>
                     </header>
                     <div class="panel-body">
                     <div class="adv-table">

@@ -9,10 +9,10 @@ if($_SESSION['level']=='admin'){
         $active12 = "active";
         $navactive7 ="nav-active";
         
-        $data = mysql_query( "SELECT * FROM hb_du_permintaan INNER JOIN hb_du_jumlah_permintaan_du ON hb_du_permintaan.id_du = hb_du_jumlah_permintaan_du.id_du INNER JOIN hb_du_umum ON hb_du_umum.id_du = hb_du_permintaan.id_du INNER JOIN hb_prakerin ON hb_prakerin.id_du = hb_du_permintaan.id_du WHERE status_verifikasi_hubin='Terverifikasi Hubin' GROUP BY hb_du_permintaan.id_du")or die(mysql_error());
+        $data = mysql_query( "SELECT * FROM hb_du_permintaan INNER JOIN hb_du_penerima ON hb_du_permintaan.id_du = hb_du_penerima.id_du INNER JOIN hb_du_umum ON hb_du_umum.id_du = hb_du_permintaan.id_du INNER JOIN hb_prakerin ON hb_prakerin.id_du = hb_du_permintaan.id_du WHERE status_verifikasi_hubin='Terverifikasi Hubin' GROUP BY hb_du_permintaan.id_du")or die(mysql_error());
 
-        //$data2 = mysql_query( "SELECT * FROM hb_prakerin INNER JOIN hb_monitoring ON hb_prakerin.id_du=hb_monitoring.id_du INNER JOIN hb_du_jumlah_permintaan_du ON hb_du_jumlah_permintaan_du.id_du = hb_prakerin.id_du WHERE hb_prakerin.tahun_ajaran='$_SESSION[tahun_ajaran]'");
-        //$data3 = mysql_query( "SELECT * FROM hb_prakerin INNER JOIN hb_monitori.ng ON hb_prakerin.id_du=hb_monitoring.id_du INNER JOIN hb_du_jumlah_permintaan_du ON hb_du_jumlah_permintaan_du.id_du = hb_prakerin.id_du WHERE hb_prakerin.tahun_ajaran='$_SESSION[tahun_ajaran]'");
+        //$data2 = mysql_query( "SELECT * FROM hb_prakerin INNER JOIN hb_monitoring ON hb_prakerin.id_du=hb_monitoring.id_du INNER JOIN hb_du_penerima ON hb_du_penerima.id_du = hb_prakerin.id_du WHERE hb_prakerin.tahun_ajaran='$_SESSION[tahun_ajaran]'");
+        //$data3 = mysql_query( "SELECT * FROM hb_prakerin INNER JOIN hb_monitori.ng ON hb_prakerin.id_du=hb_monitoring.id_du INNER JOIN hb_du_penerima ON hb_du_penerima.id_du = hb_prakerin.id_du WHERE hb_prakerin.tahun_ajaran='$_SESSION[tahun_ajaran]'");
 
         include "leftside.php"; ?>
 
@@ -22,7 +22,7 @@ if($_SESSION['level']=='admin'){
                 <div class="col-sm-12">
                     <section class="panel">
                     <header class="panel-heading">
-                        <big>Permohonan Perizinan Prakerin</big>
+                        <big>Daftar Petugas Monitoring</big>
                          <span class="pull-right">
 
                          </span>
@@ -66,7 +66,7 @@ if($_SESSION['level']=='admin'){
                                         <td> $d[nama_penanggung_jawab] <br> $d[contact_person]</td>
                                         <td>";
 
-                                                $query  = mysql_query("SELECT * FROM hb_du_jumlah_permintaan_du WHERE id_du='$d[id_du]' ");
+                                                $query  = mysql_query("SELECT * FROM hb_du_penerima WHERE id_du='$d[id_du]' ");
                                                 while ($x = mysql_fetch_array($query)) {
                                                     $j = mysql_fetch_array(mysql_query("SELECT * FROM jurusan WHERE id_jurusan='$x[id_jurusan]'"));
                                                     echo " $j[nama_jurusan] - $x[jumlah_penerimaan] orang <br>";
@@ -74,16 +74,6 @@ if($_SESSION['level']=='admin'){
 
                                             echo "
                                             <br>
-                                            <b> Fasilitas : </b><br>
-
-                                                Uang Saku  &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; : $d[uang_saku] <br>
-                                                Asrama  &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp;: $d[asrama] <br>
-                                                Uang Makan  &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp; : $d[uang_makan] <br>
-                                                Uang Transport &nbsp;  &nbsp;&nbsp; : $d[uang_transport] <br><br>
-
-                                            <b> Fasilitas Lain: </b><br>
-                                                $d[fasilitas_lain] <br>
-                                            </div>
                                         </td>
                                         <td class='center'>
                                         ";
