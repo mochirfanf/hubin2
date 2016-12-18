@@ -8,8 +8,9 @@ if($_SESSION['level']=='admin'){
         $active ="";
         $active12 = "active";
         $navactive7 ="nav-active";
+        
+        $data = mysql_query( "SELECT * FROM hb_du_permintaan INNER JOIN hb_du_jumlah_permintaan_du ON hb_du_permintaan.id_du = hb_du_jumlah_permintaan_du.id_du INNER JOIN hb_du_umum ON hb_du_umum.id_du = hb_du_permintaan.id_du INNER JOIN hb_prakerin ON hb_prakerin.id_du = hb_du_permintaan.id_du WHERE status_verifikasi_hubin='Terverifikasi Hubin' GROUP BY hb_du_permintaan.id_du")or die(mysql_error());
 
-        $data = mysql_query( "SELECT * FROM hb_du_permintaan INNER JOIN hb_du_jumlah_permintaan_du ON hb_du_permintaan.id_du = hb_du_jumlah_permintaan_du.id_du INNER JOIN hb_du_umum ON hb_du_umum.id_du = hb_du_permintaan.id_du GROUP BY hb_du_permintaan.id_du")or die(mysql_error());
         //$data2 = mysql_query( "SELECT * FROM hb_prakerin INNER JOIN hb_monitoring ON hb_prakerin.id_du=hb_monitoring.id_du INNER JOIN hb_du_jumlah_permintaan_du ON hb_du_jumlah_permintaan_du.id_du = hb_prakerin.id_du WHERE hb_prakerin.tahun_ajaran='$_SESSION[tahun_ajaran]'");
         //$data3 = mysql_query( "SELECT * FROM hb_prakerin INNER JOIN hb_monitori.ng ON hb_prakerin.id_du=hb_monitoring.id_du INNER JOIN hb_du_jumlah_permintaan_du ON hb_du_jumlah_permintaan_du.id_du = hb_prakerin.id_du WHERE hb_prakerin.tahun_ajaran='$_SESSION[tahun_ajaran]'");
 
