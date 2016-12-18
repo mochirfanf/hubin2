@@ -38,7 +38,7 @@ if($_SESSION['level']=='admin'){
 
         $j = mysql_fetch_array(mysql_query("SELECT * FROM jurusan WHERE singkatan='$jurusan'"));
 
-        $data = mysql_query( "SELECT * FROM hb_du_umum, hb_du_penerima, hb_du_permintaan WHERE hb_du_umum.id_du = hb_du_penerima.id_du  AND status_penerimaan='Menerima'  AND hb_du_umum.id_du = hb_du_permintaan.id_du AND hb_du_penerima.tahun_ajaran='$_SESSION[tahun_ajaran]' AND id_jurusan = '$j[id_jurusan]' AND hb_du_penerima.sisa_kuota_penerimaan='0'");
+        $data = mysql_query( "SELECT * FROM hb_du_umum, hb_du_penerima, hb_du_permintaan, hb_prakerin WHERE hb_du_umum.id_du = hb_du_penerima.id_du  AND status_penerimaan='Menerima'  AND hb_du_umum.id_du = hb_du_permintaan.id_du AND hb_du_penerima.tahun_ajaran='$_SESSION[tahun_ajaran]' AND id_jurusan = '$j[id_jurusan]' AND hb_du_penerima.sisa_kuota_penerimaan='0' AND hb_prakerin.status_verifikasi='Terverifikasi Kapprog' AND hb_prakerin.id_du=hb_du_umum.id_du");
 
         include "leftside.php"; ?>
                 

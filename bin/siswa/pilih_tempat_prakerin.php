@@ -73,8 +73,34 @@ if($_SESSION['level']=='siswa'){
                            }
                     else{
                             // Form Untuk Menambahkan Prakerin
+                        $queryv = mysql_query("SELECT * FROM hb_prakerin, hb_du_penerima, siswa WHERE hb_prakerin.nis = siswa.nis AND hb_prakerin.id_du= hb_du_penerima.id_du AND hb_du_penerima.id_jurusan = '$_SESSION[jurusan]' AND hb_prakerin.tahun_ajaran = '$_SESSION[tahun_ajaran]' AND hb_du_penerima.tahun_ajaran = '$_SESSION[tahun_ajaran]' AND hb_prakerin.nis = '$_SESSION[username]' AND hb_prakerin.status_verifikasi = 'Terverifikasi Kapprog' AND status_verifikasi_hubin='Terverifikasi Hubin'");
 
-                    ?>
+                        $adaga  = mysql_fetch_row($queryv);
+                        if ($adaga > 0) {
+                            ?>
+                                
+                    <header class="panel-heading"> <big>Anda sudah diverifikasi Hubin </big> </header>
+                    <form class="form-horizontal form-label-left" method="POST" action="<?php echo "proses_siswa.php?a=pilihtempat"; ?>" enctype="multipart/form-data">
+
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <br>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12"> Keterangan :</label>
+                                <div class="col-lg-6 flat-green">
+                                    <textarea class="form-control" style="border:none" rows="10">
+1. Silahkan ambil Surat Pengantar ke Ruang Hubin
+2. Diharapkan hanya diambil oleh perwakilan saja
+                                     </textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                            <?php
+                        }
+                        else{
+                            ?>
+
                     <header class="panel-heading"> <big>Informasi Penerimaan Siswa Untuk Prakerin </big> </header>
                     <form class="form-horizontal form-label-left" method="POST" action="<?php echo "proses_siswa.php?a=pilihtempat"; ?>" enctype="multipart/form-data">
 
@@ -109,6 +135,10 @@ if($_SESSION['level']=='siswa'){
                             </div>
                         </div>
                     </form>
+
+                            <?php
+                        }
+                    ?>
             <?php } ?>
                 </section>
             </div>

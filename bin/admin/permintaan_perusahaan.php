@@ -120,7 +120,7 @@ if($_SESSION['level']=='admin'){
                                                         </div>
                                                         <div class='modal-body'>
                                                             <div class='form-group'>
-                                                                <form method='POST' action='proses_admin.php?a=tolak_permintaan_perusahaan&id=$d[id_du]'>
+                                                                <form method='POST' action='proses_admin.php?a=tolak_permintaan_perusahaan2&id=$d[id_du]'>
                                                                 <div class='col-lg-12'>
                                                                     <input type='text' class='form-control' name='alasan' placeholder='Berikan Alasan ....' required>
                                                                 </div>

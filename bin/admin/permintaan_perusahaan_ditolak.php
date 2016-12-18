@@ -85,7 +85,7 @@ if($_SESSION['level']=='admin'){
                                         </td>
                                         <td>
                                             <a href='#verifikasi$d[id_du]' data-toggle='modal'>
-                                                <button class='btn btn-sm btn-danger' type='button'><i class='fa fa-cogs'></i></button>
+                                                <button class='btn btn-sm btn-danger' type='button'><i class='fa fa-check'></i> Jadikan Penerima </button>
                                             </a>
                                         </td>
                                         <div  style='text-transform:none' aria-hidden='true' aria-labelledby='myModalLabel' role='dialog' tabindex='-1' id='verifikasi$d[id_du]' class='modal fade'>

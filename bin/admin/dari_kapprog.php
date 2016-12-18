@@ -164,10 +164,10 @@ if($_SESSION['level']=='admin'){
                                                             <div class='modal-content'>
                                                                 <div class='modal-header'>
                                                                     <button aria-hidden='true' data-dismiss='modal' class='close' type='button'>×</button>
-                                                                    <h5>Verifikasi Permintaan Prakerin</h5>
+                                                                    <h5>Verifikasi Permohonan Prakerin</h5>
                                                                 </div>
                                                                 <div class='modal-body'>
-                                                                    Apakah anda ingin menerima permintaan prakerin dari :  $d[nama_du] ?
+                                                                    Apakah anda ingin menerima permintaan prakerin dari :  <b> $d[nama_du]?</b>
                                                                 </div>
                                                                <div class='modal-footer'>
                                                                     <button type='button' class='btn btn-default' data-dismiss='modal'>Kembali</button>
@@ -187,7 +187,7 @@ if($_SESSION['level']=='admin'){
                                                                 </div>
                                                                 <div class='modal-body'>
                                                                     <div class='form-group'>
-                                                                        <form method='POST' action='proses_admin.php?a=tolak_permintaan_perusahaan&id=$d[id_du]'>
+                                                                        <form method='POST' action='proses_admin.php?a=tolak_permintaan_perusahaan2&id=$d[id_du]'>
                                                                         <div class='col-lg-12'>
                                                                             <input type='text' class='form-control' name='alasan' placeholder='Berikan Alasan ....' required=''>
                                                                         </div>
