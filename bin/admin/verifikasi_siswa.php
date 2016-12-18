@@ -65,6 +65,17 @@ if($_SESSION['level']=='admin'){
                                 $mulai = tanggal($d["mulai_pelaksanaan"]);
                                 $berakhir = tanggal($d["berakhir_pelaksanaan"]);
                                 $s = mysql_fetch_array(mysql_query("SELECT singkatan FROM jurusan, hb_du_permintaan WHERE hb_du_permintaan.du_id_jurusan = jurusan.id_jurusan AND id_jurusan='$d[du_id_jurusan]'"));
+
+                                $cc = mysql_query("SELECT * FROM hb_prakerin WHERE id_du=$d[id_du] AND tahun_ajaran='$_SESSION[tahun_ajaran]'");
+                                $vb = 1;
+                                while($f=mysql_fetch_array($cc)){
+                                    if($f['status_verifikasi']==''){
+                                        $vb=0;
+                                    }
+                                }
+                                if($vb==0){
+                                    continue;
+                                }
                                 echo "
                                     <tr class='gradeA'>
                                         <td> $no </td>

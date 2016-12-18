@@ -14,7 +14,6 @@ if($_SESSION['level']=='admin'){
         if (empty($id_du)) {
             header("location:dusistemseleksi.php");
         }
-
         $data = mysql_query( "SELECT * FROM hb_du_umum, siswa, hb_prakerin, jurusan WHERE hb_prakerin.id_du=hb_du_umum.id_du AND siswa.nis = hb_prakerin.nis AND hb_prakerin.id_du='$id_du' AND jurusan.id_jurusan = siswa.id_jurusan");
 
         function tanggal($tglnya){

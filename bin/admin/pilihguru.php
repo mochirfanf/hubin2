@@ -51,6 +51,18 @@ if($_SESSION['level']=='admin'){
                                 $kec = mysql_fetch_array(mysql_query("SELECT nama FROM kecamatan WHERE id_kec='$d[id_kec]'"));
                                 $kab = mysql_fetch_array(mysql_query("SELECT nama FROM kabupaten WHERE id_kab='$d[id_kab]'"));
                                 $prov = mysql_fetch_array(mysql_query("SELECT nama FROM provinsi WHERE id_prov='$d[id_prov]'"));
+
+                                $cc = mysql_query("SELECT * FROM hb_prakerin WHERE id_du=$d[id_du] AND tahun_ajaran='$_SESSION[tahun_ajaran]'");
+                                $vb = 1;
+                                while($f=mysql_fetch_array($cc)){
+                                    if($f['status_verifikasi_hubin']==''){
+                                        $vb=0;
+                                    }
+                                }
+                                if($vb==0){
+                                    continue;
+                                }
+
                                 echo "
                                     <tr class='gradeA'>
                                         <td> $no </td>
