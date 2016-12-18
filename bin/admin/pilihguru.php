@@ -126,7 +126,7 @@ $jur = mysql_query("SELECT * FROM jurusan");
                         <label class='control-label col-md-3 col-sm-3 col-xs-12' for='name'>Jurusan : <span class='required'></span> </label>
                         <div class="col-lg-8"><?php
                                     $name = "";
-                                    echo "<input type='text' id='id' name='id_du'>";
+                                    echo "<input type='hidden' id='id' name='id_du'>";
 
                                     echo "<select required class='form-control m-bot15' id='jurusan' name='jurusan'>
                                             ";

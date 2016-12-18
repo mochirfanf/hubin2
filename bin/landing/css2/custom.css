@@ -31,7 +31,7 @@ table.tpp tr td{
 	padding: 10px 0;
 }
 .skills{
-   background-color: #83af9a;
+   background-color: #4f85c1;
    padding: 5px;
    margin: 0px 5px;
    border-radius: 5px;
@@ -40,7 +40,7 @@ table.tpp tr td{
 }
 .navbar-default{
    border:0;
-   background-color: #77ACA2;
+   background-color: #3a6ea5;
    box-shadow: 0 4px 2px -2px #c2c2c2;
 
 }
@@ -48,7 +48,7 @@ table.tpp tr td{
    text-align: right;
    background-color: #fff;
    color:#fff;
-   border-bottom:1px solid #77ACA2;
+   border-bottom:1px solid #3a6ea5;
 }
 .search{
    border:1px solid #E0E0E0;
@@ -59,7 +59,7 @@ table.tpp tr td{
    color: #5b9589;
 }
 .btn-info{
-   background-color: #77ACA2;
+   background-color: #3a6ea5;
    border:0;
 }
 .btn-info:hover{
@@ -80,14 +80,14 @@ table.tpp tr td{
    padding-bottom: 11px;
 }
 .ac{
-   background-color: #5b9589;
+   background-color: #2d4597;
    color: #fff;
 }
 .navbar-header{
    padding-top: 10px;
 }
 .btn-info.disabled, .btn-info.disabled.active, .btn-info.disabled.focus, .btn-info.disabled:active, .btn-info.disabled:focus, .btn-info.disabled:hover, .btn-info[disabled], .btn-info[disabled].active, .btn-info[disabled].focus, .btn-info[disabled]:active, .btn-info[disabled]:focus, .btn-info[disabled]:hover, fieldset[disabled] .btn-info, fieldset[disabled] .btn-info.active, fieldset[disabled] .btn-info.focus, fieldset[disabled] .btn-info:active, fieldset[disabled] .btn-info:focus, fieldset[disabled] .btn-info:hover{
-   background-color: #77ACA2;
+   background-color: #3a6ea5;
 }
 .pendaf{
    padding: 0;
@@ -110,7 +110,7 @@ table.tpp tr td{
         transition: max-width 1s ease-out .1s, opacity 1s ease-out .1s, color;
     }
         .pendaf li a:hover {
-            color: #77ACA2;
+            color: #3a6ea5;
         }
         .pendaf li a i {
             float:right;

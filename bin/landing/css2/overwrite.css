@@ -340,7 +340,7 @@ border: 1px solid #e6e6e6;
 
 /* ---- PROFILE 2 ---- */
 .mprofile{
-	background-color: #77ACA2;
+	background-color: #3a6ea5;
 }
 
 .mprofile-pict{
@@ -348,7 +348,7 @@ border: 1px solid #e6e6e6;
 }
 
 .introyour {
-	background-color: #77ACA2;
+	background-color: #3a6ea5;
 	border-bottom: 3px solid #FFF;
 	/*margin-left: 15px;*/
 	border-radius: 0px;
@@ -387,7 +387,7 @@ border: 1px solid #e6e6e6;
 }
 
 .profile-usermenu ul li.your a {
-   color: #77ACA2;
+   color: #3a6ea5;
 }
 
 
@@ -436,7 +436,7 @@ border: 1px solid #e6e6e6;
   /* --- INI DI EDIT ASALNYA f6f9fb --- */
   font-size: 22px;
   /* asalnya ga ada font-size*/
-  background-color: #77ACA2;
+  background-color: #3a6ea5;
   border-left: 0px solid #5b9bd1;
   border-bottom: 3px solid #FFF;
   margin-left: -2px;
@@ -595,7 +595,7 @@ border: 1px solid #e6e6e6;
 }
 
 .jobs-nm-text{
-	color: #77ACA2;
+	color: #3a6ea5;
 	font-family: "lato";
 	font-weight: 100;
 }

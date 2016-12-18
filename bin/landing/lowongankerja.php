@@ -51,7 +51,7 @@ $total_pages = ceil($get_total_rows[0]/$item_per_page);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand topnav" href="index.php">LOKER HUBIN</a>
+                <a class="navbar-brand topnav" href="index.php"><img src='../images/logobkk.png' class='img-responsive' style="width: 120px;margin-top:-10px;"></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

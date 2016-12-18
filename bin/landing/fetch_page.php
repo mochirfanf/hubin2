@@ -25,7 +25,7 @@ $_GET['q'] = mysql_real_escape_string(stripslashes(strip_tags(htmlspecialchars($
                         
                         </div> 
                         <div class='col-md-3'>
-                            <h4 class='company-nm-text' style="color: #77ACA2"><?php echo $d['nama_du']?></h4>
+                            <h4 class='company-nm-text' style="color: #4f85c1"><?php echo $d['nama_du']?></h4>
                         </div>
                     </div>
                     <br>
@@ -57,7 +57,7 @@ $_GET['q'] = mysql_real_escape_string(stripslashes(strip_tags(htmlspecialchars($
 
                     </div>
 
-                    <a href='detail.php?id=<?php echo $d['id_du_kerja']?>' class="btn btn-default dropdown-toggle btn-jobs"  aria-haspopup="true" aria-expanded="false" style='float: right;background-color: #749593'>
+                    <a href='detail.php?id=<?php echo $d['id_du_kerja']?>' class="btn btn-default dropdown-toggle btn-jobs"  aria-haspopup="true" aria-expanded="false" style='float: right;background-color: #4f85c1'>
                         Lebih Detail
                     </a>
                     <br><br>
