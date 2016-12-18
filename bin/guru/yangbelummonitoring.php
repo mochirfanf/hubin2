@@ -6,10 +6,11 @@ if($_SESSION['level']=='guru'){
     if ($_SESSION['tahun_ajaran']!='') {
         $title="Daftar Siswa yang Dimonitoring";
         $active ="";
-        $active18 = "active";
+        $active14 = "active";
         $navactive7 ="nav-active";
 
-        $data = mysql_query( "SELECT * FROM hb_prakerin INNER JOIN hb_monitoring ON hb_prakerin.id_du=hb_monitoring.id_du WHERE saran_pembimbing = $_SESSION[username] AND hb_prakerin.tahun_ajaran='$_SESSION[tahun_ajaran]' AND nilai =''")or die(mysql_error());
+        $data = mysql_query( "SELECT * FROM hb_monitoring WHERE nip_guru = $_SESSION[username] AND tahun_ajaran='$_SESSION[tahun_ajaran]' AND nilai =''")or die(mysql_error());
+       
        
         include "leftside.php"; ?>
                 
@@ -41,11 +42,8 @@ if($_SESSION['level']=='guru'){
                             $no =0;
                             while ($d = mysql_fetch_array($data)) {
                                 $no = $no+1;
-                                $d2 = mysql_fetch_array(mysql_query("SELECT nama_guru FROM guru WHERE nip_guru ='$d[saran_pembimbing]'"))or die(mysql_error());
-                                $d3 = mysql_fetch_array(mysql_query("SELECT nama_siswa,id_jurusan,kelas FROM siswa WHERE nis ='$d[nis]'"));
                                 $d4 = mysql_fetch_array(mysql_query("SELECT id_du, kabupaten.nama AS namakab, nama_du, alamat, nama_penanggung_jawab_umum FROM hb_du_umum INNER JOIN kabupaten ON kabupaten.id_kab=hb_du_umum.id_kab WHERE id_du ='$d[id_du]'"))or die(mysql_error());
 
-                                $j = mysql_fetch_array(mysql_query("SELECT * FROM jurusan WHERE id_jurusan='$d3[id_jurusan]'"));
                                 echo "
                                     <tr class='gradeA'>
                                         <td> $no </td>
@@ -83,7 +81,7 @@ if($_SESSION['level']=='guru'){
             <div class='modal-content'>
                 <div class='modal-header'>
                     <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
-                    <h4 class='modal-title' id='myModalLabel'>Register Perusahaan</h4> </div>
+                    <h4 class='modal-title' id='myModalLabel'>Nilai Monitoring</h4> </div>
                 <div class='modal-body'>
                     <form class='form-horizontal form-label-left' method='POST' action='proses_guru.php?a=monitoring' enctype='multipart/form-data'>
                        <input type='hidden' id='iddu' name='iddu'>
@@ -100,15 +98,13 @@ if($_SESSION['level']=='guru'){
                             <div class='item form-group'>
                                 <label class='control-label col-md-5 col-sm-3 col-xs-12' for='name'>Nilai : <span class='required'></span> </label>
                                 <div class='col-md-7 col-sm-9 col-xs-12' style='margin-bottom:20px;'>
-
                                 <select class='form-control col-md-7 col-xs-12' name='nilai' id='nilai' required>
                                     <option value='A' selected>A</option>
                                     <option value='B'>B</option>
                                     <option value='C'>C</option>
                                     <option value='D'>D</option>
                                     <option value='E'>E</option>
-                                </select>
-                                </div>
+                                </select> </div>
                             </div>
                             <div class='item form-group'>
                                 <label class='control-label col-md-5 col-sm-3 col-xs-12' for='name'>Masalah yang Ditemukan : <span class='required'></span> </label>

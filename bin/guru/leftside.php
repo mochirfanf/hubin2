@@ -89,9 +89,8 @@
                 <li class="menu-list <?php echo "$navactive7"; ?>"><a href=""><i class="fa fa-building-o"></i> <span>Monitoring</span></a>
                     <ul class="sub-menu-list">
                         <li class="<?php echo "$active13"; ?> "><a href="daftarsiswamonitoring.php"> Daftar Siswa </a></li>
-                        <li class="<?php echo "$active17"; ?> "><a href="jadwalmonitoring.php"> Jadwal Monitoring </a></li>
-                        <li class="<?php echo "$active18"; ?> "><a href="yangbelummonitoring.php"> Siswa yang Belum di Monitoring </a></li>
-                        <li class="<?php echo "$active14"; ?> "><a href="hasilmonitoring.php"> Siswa yang Sudah di Monitoring </a></li>
+                        <li class="<?php echo "$active18"; ?> "><a href="yangbelummonitoring.php"> Belum di Monitoring </a></li>
+                        <li class="<?php echo "$active14"; ?> "><a href="hasilmonitoring.php"> Sudah di Monitoring </a></li>
                     </ul>
                 </li>
                 <li class="<?php echo "$active45"; ?> "><a href="bimbingan.php"><i class="fa fa-building-o"></i> <span> Bimbingan </span></a></li>

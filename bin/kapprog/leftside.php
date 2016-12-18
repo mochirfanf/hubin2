@@ -127,8 +127,8 @@
                     <ul class="sub-menu-list">
                         <li class="<?php echo "$active19"; ?> "><a href="pilihguru.php"> Guru Jurusan </a></li>
                         <li class="<?php echo "$active13"; ?> "><a href="daftarsiswa_monitoring.php"> Daftar Siswa </a></li>
-                        <li class="<?php echo "$active14"; ?> "><a href="hasil_monitoring.php"> Hasil Monitoring </a></li>
-                        <li class="<?php echo "$active15"; ?> "><a href="belum_monitoring.php"> Siswa yang Belum di Monitoring </a></li>
+                        <li class="<?php echo "$active15"; ?> "><a href="belum_monitoring.php"> Belum di Monitoring </a></li>
+                        <li class="<?php echo "$active14"; ?> "><a href="hasil_monitoring.php"> Sudah di Monitoring </a></li>
                     </ul>
                 </li>
                 <li class="<?php echo "$active88"; ?> "><a href="bimbingan.php"><i class="fa fa-building-o"></i> <span> Bimbingan </span></a></li>

@@ -20,13 +20,10 @@ if($_SESSION['level']=='guru'){
 			case "tanggalmonitoring" :
 				if(isset($_POST['pilih'])){
 
-					$ada= mysql_query("SELECT tgl_monitoring FROM hb_monitoring WHERE id_du='$_POST[iddu]'");
-					$c = mysql_fetch_array($ada);
-
 						mysql_query("UPDATE hb_monitoring SET tgl_monitoring='$_POST[tgl_monitoring]' WHERE id_du='$_POST[iddu]'") or die ("Ups! Gagal Ditambahkan, Silahkan Coba Lagi! ".mysql_error());
 					
 					
-					header("location:jadwalmonitoring.php");
+					header("location:daftarsiswamonitoring.php");
 				}
 
 			break;
